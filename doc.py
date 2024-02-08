@@ -14,16 +14,6 @@ def add_data_to_doc(
             usd_price: Union[str, None],
             de: bool,
         ) -> None:
-    _add_data_to_doc(data, last_day, is_group, usd_price, de)
-
-
-def _add_data_to_doc(
-            data: StructData,
-            last_day: date,
-            is_group: bool,
-            usd_price: Union[str, None],
-            de: bool,
-        ) -> None:
     doc = DocxTemplate('template.docx')
     rate = format_number(float(HOURLY_RATE))
     context = {
