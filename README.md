@@ -10,6 +10,12 @@ Steps:
 	SENDER_NAME: str = ''  # Name Surname
 	LOCALE: str = ''  # like 'de_DE'
 	VACATION_TEXT = ''  # like 'Support spiders'
+    # default args
+    GROUP_BY_DAYS = False
+    CONVERT_TO_USD = False
+    ADD_GERMAN_LANGUAGE = False
+    ADD_VACATION = False
+    ADD_EXTRA_EXPENSES_PREMIUMS = False
 	```
 4. in the `template.docx` file, fill in the fields highlighted in green and turn off the highlighting
 5. run the script with parameters from the command line where:
@@ -18,7 +24,7 @@ Steps:
 	    - `-m` - the month of the report;
 	- additional parameters:
 	    - `-g` - group by tasks by day. By default, grouping by month;
-	    - `-usd` - convert total price to USD;
+	    - `-usd` - convert total price to USD. Keep in mind that the conversion works for the last 30 days;
 	    - `-de` - add German language to report;
 	    - `-v` - add a vacation. User input will be required;
 	    - `-e` - add extra expenses/premiums.  User input will be required;

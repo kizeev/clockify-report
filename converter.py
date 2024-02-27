@@ -13,6 +13,9 @@ BODY = 'base_id=49&tocode=USD&days=30&amount={}'
 
 
 def convert_to_usd(euro_price: str, last_day: date) -> str:
+    today = date.today()
+    if today < last_day:
+        last_day = today
     try:
         euro_price = euro_price.replace('.', '').replace(',', '.')
         api_data = _get_data_from_api(euro_price)
