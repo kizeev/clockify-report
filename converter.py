@@ -40,8 +40,8 @@ def _parse_response(response: str, last_day: date) -> float:
     formatted_last_day = last_day.strftime("%d/%m/%Y")
     parser = etree.HTMLParser(recover=True)
     html = etree.parse(StringIO(response), parser)
-    [raw_price] = html.xpath(
+    raw_price = html.xpath(
         f'//td[contains(., "{formatted_last_day}")]'
         '/following-sibling::td/text()')
-    usd_price = re.findall(r'\b(\d+\.\d+)\sUSD', raw_price)[0]
+    usd_price = re.findall(r'\b(\d+\.\d+)\sUSD', raw_price[0])[0]
     return float(usd_price)
